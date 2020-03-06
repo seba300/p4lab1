@@ -9,12 +9,12 @@ namespace p4lab
         static void Main(string[] args)
         {
             string connectionString =
-                @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=master;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+                @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             using SqlConnection conn = new SqlConnection(connectionString);
 
             conn.Open();
 
-            string CommandText = "SELECT * FROM Northwind.dbo.Customers";
+            string CommandText = "SELECT * FROM Customers";
             SqlCommand command = new SqlCommand(CommandText, conn);
 
             //execute commandText
@@ -23,7 +23,7 @@ namespace p4lab
             //read all
             while (reader.Read())
             {
-                //Console.WriteLine(reader["CompanyName"]);
+                Console.WriteLine(reader["CompanyName"]);
             }
             reader.Close();
 
